@@ -1,0 +1,34 @@
+{
+  "search_vehicle": {
+    "vehicles": ["RAM", "TOYOTA", "HYUNDAI", "NISSAN","CHRYSLER", "FORD", "MITSUBISHI", "SUBARU"]
+  },
+  "search_id" : {
+    "id" : ["359","368","375"]
+  },
+   "search_types" : {
+      "types": ["OBD II", "Diagnostic", "Customer", "Collision"]
+    },
+  "search_customer" : {
+    "customer" : ["Aka Eren"]
+  },
+  "search_invalid" : {
+    "input" : "MANUALS INNNOVA SDS43 ",
+    "expected" : "No reports found."
+  },
+  "date_picker": [
+    { "from_date": "10/03/2025", "to_date": "01/09/2026" }
+  ],
+  "edit_valid_user": {
+    "first_name" : "Shinomiya",
+    "last_name" : "Kikoru",
+    "phone" : "0888576999",
+    "email" : "shinomiya123@gmail.com"
+  },
+  "empty_field" : {
+    "first_name" : "Akami",
+    "last_name" : "",
+    "phone" : "",
+    "email" : "",
+    "invalid_email" : ["Mi Yana <email@example.com>", "#@%^%#$@#$@#.com", "test.io.com","Akami Yukota", "<email@example.com>","email@example" ,"email@example..com"]
+  }
+}

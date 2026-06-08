@@ -1,0 +1,257 @@
+image: gitlab.innovavietnam.com/qa-automation-rspro-website/qa-automation-test-rspro-website:latest
+
+variables:
+  PAGES_URL: "http://$SERVER_IP:8000"
+
+stages:
+  - test
+  - report
+  - deploy
+
+.default_pytest_job:
+  stage: test
+  parallel:
+    matrix:
+      - BROWSER: [chrome]
+  script:
+    - export PYTHONPATH=.
+    - export REPORT_DIR="reports_${TEST_SUITE_SLUG}_${BROWSER}"
+    - export ALLURE_DIR="allure-results_${TEST_SUITE_SLUG}_${BROWSER}"
+    - mkdir -p "$REPORT_DIR" "$ALLURE_DIR"
+    - rm -rf "$ALLURE_DIR"/*
+    - echo "================================================="
+    - echo "Running $TEST_SUITE_NAME on $BROWSER"
+    - echo "Targets: $PYTEST_TARGETS"
+    - echo "================================================="
+    - |
+      pytest $PYTEST_TARGETS \
+        --ignore=test_cases/tests/Auth_Tests/Sign_Up_ZipCode_test.py \
+        --rootdir=. \
+        --browser="$BROWSER" \
+        -c configurations/config.ini \
+        --html="${REPORT_DIR}/${TEST_SUITE_SLUG}_${BROWSER}_Report.html" \
+        --self-contained-html \
+        --alluredir="$ALLURE_DIR"
+  artifacts:
+    when: always
+    paths:
+      - reports_${TEST_SUITE_SLUG}_${BROWSER}/
+      - allure-results_${TEST_SUITE_SLUG}_${BROWSER}/
+    expire_in: 1 week
+
+# Weekly schedule: full regression suite.
+regression_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "full regression suite"
+    TEST_SUITE_SLUG: "regression"
+    PYTEST_TARGETS: "test_cases/tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - when: never
+
+# Push/MR pipelines: run only the feature suite affected by changed files.
+auth_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "Auth feature tests"
+    TEST_SUITE_SLUG: "auth"
+    PYTEST_TARGETS: "test_cases/tests/Auth_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/Auth_Pages/**/*
+        - base_pages/pages/Login_Pages/**/*
+        - test_cases/tests/Auth_Tests/**/*
+        - test_data/login.json
+        - test_data/sign_up_invalid_email.json
+        - test_data/zipcode_usa_canada.xlsx
+    - when: never
+
+homepage_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "HomePage feature tests"
+    TEST_SUITE_SLUG: "homepage"
+    PYTEST_TARGETS: "test_cases/tests/HomePage_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/HomePage_Pages/**/*
+        - test_cases/tests/HomePage_Tests/**/*
+    - when: never
+
+my_report_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "My Report feature tests"
+    TEST_SUITE_SLUG: "my_report"
+    PYTEST_TARGETS: "test_cases/tests/My_Report_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/My_Report_Pages/**/*
+        - test_cases/tests/My_Report_Tests/**/*
+        - test_data/my_reports.json
+    - when: never
+
+products_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "Products feature tests"
+    TEST_SUITE_SLUG: "products"
+    PYTEST_TARGETS: "test_cases/tests/Products_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/Products_Pages/**/*
+        - test_cases/tests/Products_Tests/**/*
+        - test_data/product*.json
+    - when: never
+
+support_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "Support feature tests"
+    TEST_SUITE_SLUG: "support"
+    PYTEST_TARGETS: "test_cases/tests/Support_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/Support_Pages/**/*
+        - test_cases/tests/Support_Tests/**/*
+        - test_data/dtc_library.json
+    - when: never
+
+technical_center_tests:
+  extends: .default_pytest_job
+  variables:
+    TEST_SUITE_NAME: "Technical Center feature tests"
+    TEST_SUITE_SLUG: "technical_center"
+    PYTEST_TARGETS: "test_cases/tests/Technical_Center_Tests/"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/Technical_Center_Pages/**/*
+        - test_cases/tests/Technical_Center_Tests/**/*
+    - when: never
+
+summary_test_report:
+  stage: report
+  image: frankescobar/allure-docker-service
+  needs:
+    - job: regression_tests
+      artifacts: true
+      optional: true
+    - job: auth_tests
+      artifacts: true
+      optional: true
+    - job: homepage_tests
+      artifacts: true
+      optional: true
+    - job: my_report_tests
+      artifacts: true
+      optional: true
+    - job: products_tests
+      artifacts: true
+      optional: true
+    - job: support_tests
+      artifacts: true
+      optional: true
+    - job: technical_center_tests
+      artifacts: true
+      optional: true
+  when: always
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - base_pages/pages/Auth_Pages/**/*
+        - base_pages/pages/Login_Pages/**/*
+        - base_pages/pages/HomePage_Pages/**/*
+        - base_pages/pages/My_Report_Pages/**/*
+        - base_pages/pages/Products_Pages/**/*
+        - base_pages/pages/Support_Pages/**/*
+        - base_pages/pages/Technical_Center_Pages/**/*
+        - test_cases/tests/Auth_Tests/**/*
+        - test_cases/tests/HomePage_Tests/**/*
+        - test_cases/tests/My_Report_Tests/**/*
+        - test_cases/tests/Products_Tests/**/*
+        - test_cases/tests/Support_Tests/**/*
+        - test_cases/tests/Technical_Center_Tests/**/*
+        - test_data/login.json
+        - test_data/sign_up_invalid_email.json
+        - test_data/zipcode_usa_canada.xlsx
+        - test_data/my_reports.json
+        - test_data/dtc_library.json
+        - test_data/product*.json
+      when: always
+    - when: never
+  script:
+    - echo "Merging allure results from available test jobs..."
+    - mkdir -p allure-results_all
+    - |
+      for dir in allure-results_*; do
+        if [ -d "$dir" ] && [ "$dir" != "allure-results_all" ]; then
+          cp -r "$dir"/* allure-results_all/ || true
+        fi
+      done
+    - |
+      if [ -z "$(find allure-results_all -type f | head -n 1)" ]; then
+        echo "No allure result files found. Skipping report generation."
+        exit 0
+      fi
+    - echo "Fetching history for trend charts..."
+    - mkdir -p allure-results_all/history
+    - curl -s -L "$PAGES_URL/history/history.json"          -o allure-results_all/history/history.json          || true
+    - curl -s -L "$PAGES_URL/history/history-trend.json"    -o allure-results_all/history/history-trend.json    || true
+    - curl -s -L "$PAGES_URL/history/categories-trend.json" -o allure-results_all/history/categories-trend.json || true
+    - curl -s -L "$PAGES_URL/history/duration-trend.json"   -o allure-results_all/history/duration-trend.json   || true
+    - curl -s -L "$PAGES_URL/history/retry-trend.json"      -o allure-results_all/history/retry-trend.json      || true
+    - allure generate allure-results_all -o allure-report --clean
+  artifacts:
+    when: always
+    paths:
+      - allure-report
+    expire_in: 1 week
+
+deploy_to_server:
+  stage: deploy
+  image: alpine:latest
+  needs:
+    - job: summary_test_report
+      artifacts: true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: never
+  before_script:
+    - apk add --no-cache openssh-client rsync
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+  script:
+    - echo "Deploying full regression allure-report to server..."
+    - rsync -avz --delete ./allure-report/ $SERVER_USER@$SERVER_IP:/opt/rspro-automation/allure-report/
+    - |
+      ssh $SERVER_USER@$SERVER_IP "
+        docker rm -f allure-dashboard || true &&
+        docker run -d -p 8000:80 \
+          -v /opt/rspro-automation/allure-report:/usr/share/nginx/html:ro \
+          --name allure-dashboard nginx:alpine
+      "
+    - echo "Report available at http://$SERVER_IP:8000"

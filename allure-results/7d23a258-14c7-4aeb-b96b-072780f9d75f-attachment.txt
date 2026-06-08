@@ -1,0 +1,19 @@
+[38;2;57;255;20m14:11:21: INFO: ===== Verify indicators number changed color number 1,2,3,4 =====[0m
+[38;2;57;255;20m14:11:21: INFO: Scroll to Obtain an SDS Diagnostics Tablet[0m
+[38;2;57;255;20m14:11:21: INFO: Before color changed was D6E3F1[0m
+[38;2;57;255;20m14:11:21: INFO: Get Color rgba(214, 227, 241, 1)[0m
+[38;2;57;255;20m14:11:22: INFO: Hover to 1 : Obtain an SDS Diagnostics Tablet[0m
+[38;2;57;255;20m14:11:22: INFO: Changed background linear-gradient(135deg, rgb(214, 227, 241) 0.31%, rgb(106, 153, 204) 99.69%)[0m
+[38;2;57;255;20m14:11:22: INFO: Before color changed was D6E3F1[0m
+[38;2;57;255;20m14:11:22: INFO: Get Color rgba(214, 227, 241, 1)[0m
+[38;2;57;255;20m14:11:22: INFO: Hover to 2 : Obtain an SDS Diagnostics Tablet[0m
+[38;2;57;255;20m14:11:22: INFO: Changed background linear-gradient(135deg, rgb(214, 227, 241) 0.31%, rgb(106, 153, 204) 99.69%)[0m
+[38;2;57;255;20m14:11:22: INFO: Before color changed was D6E3F1[0m
+[38;2;57;255;20m14:11:22: INFO: Get Color rgba(214, 227, 241, 1)[0m
+[38;2;57;255;20m14:11:22: INFO: Hover to 3 : Obtain an SDS Diagnostics Tablet[0m
+[38;2;57;255;20m14:11:22: INFO: Changed background linear-gradient(135deg, rgb(214, 227, 241) 0.31%, rgb(106, 153, 204) 99.69%)[0m
+[38;2;57;255;20m14:11:22: INFO: Before color changed was D6E3F1[0m
+[38;2;57;255;20m14:11:22: INFO: Get Color rgba(214, 227, 241, 1)[0m
+[38;2;57;255;20m14:11:23: INFO: Hover to 4 : Obtain an SDS Diagnostics Tablet[0m
+[38;2;57;255;20m14:11:23: INFO: SUCCESS: Background changed to linear-gradient containing rgb(106, 153, 204).[0m
+[38;2;57;255;20m14:11:23: INFO: PASS: test_verify_indicators_changes_color_number_1 - Pass[0m

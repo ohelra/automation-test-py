@@ -1,0 +1,5 @@
+[38;2;57;255;20m14:11:00: INFO: ===== Verify Repair Tips Hover Shows Modal =====[0m
+[38;2;57;255;20m14:11:03: INFO: Scroll to Fix For DTC[0m
+[38;2;57;255;20m14:11:09: INFO: Hover over Fix For DTC[0m
+[38;2;57;255;20m14:11:09: INFO: PASS: Fix For DTC modal displayed successfully with zoom out animation[0m
+[38;2;57;255;20m14:11:09: INFO: PASS: test_verify_fix_for_dtc_hover_shows_modal_fix - Pass[0m

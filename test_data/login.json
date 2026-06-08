@@ -1,0 +1,39 @@
+{
+  "invalid_email":
+      {
+        "email": "sangqa123@yopmail.vn.com",
+        "password": "12345678"
+      },
+
+  "invalid_password":
+      {
+        "email": "sangqa@yopmail.com",
+        "password": "657089858"
+      },
+
+  "empty_fields":
+      {
+        "email": "",
+        "password": ""
+      },
+  "valid":
+      {
+        "email": "sangqa@yopmail.com",
+        "password": "123456789"
+      },
+  "eye_password":
+      {
+        "email": "sangqa@yopmail.com",
+        "password": "Abcdef@123"
+      },
+  "sensitivity":
+      {
+        "email": "jotawif537@pazard.com",
+        "password": "ABCdef@123"
+      },
+  "sql_injection":
+      {
+        "email": "jotawif537@pazard.com",
+        "password": "' OR '1'='1"
+      }
+}

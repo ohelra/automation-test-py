@@ -1,0 +1,5 @@
+[32mINFO    [0m root:Login_test.py:68 ===== Verify that user can login with valid email and password  =====
+[32mINFO    [0m root:Login_test.py:76 Enter email : sangqa@yopmail.com
+[32mINFO    [0m root:Login_test.py:78 Enter password textbox
+[32mINFO    [0m root:Login_test.py:80 Click submit button
+[32mINFO    [0m root:custom_logger.py:37 PASS: Login Successful with invalid account

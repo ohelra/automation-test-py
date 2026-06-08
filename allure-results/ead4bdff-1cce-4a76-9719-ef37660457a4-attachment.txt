@@ -1,0 +1,1 @@
+[32mINFO    [0m root:Introduction_Features_test.py:158 ===== Verify three device move together =====

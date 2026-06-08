@@ -1,0 +1,7 @@
+[38;2;57;255;20m14:11:27: INFO: ===== Verify mobile zoom in =====[0m
+[38;2;57;255;20m14:11:31: INFO: Scroll to mobile device section.[0m
+[38;2;57;255;20m14:11:31: INFO: Default scale transform: none[0m
+[38;2;57;255;20m14:11:33: INFO: Hover over the animation frame.[0m
+[38;2;57;255;20m14:11:33: INFO: Scale transform after hover: matrix(1.135, 0, 0, 1.135, 0, 0)[0m
+[38;2;57;255;20m14:11:33: INFO: SUCCESS: Mobile device successfully zoomed out (scale 1.135) on hover.[0m
+[38;2;57;255;20m14:11:33: INFO: PASS: test_verify_mobile_zoom_out - Pass[0m

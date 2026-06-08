@@ -1,0 +1,5 @@
+[38;2;57;255;20m14:11:09: INFO: ===== Verify Repair Tips Hover Shows Modal =====[0m
+[38;2;57;255;20m14:11:09: INFO: Scroll to Repair Tips[0m
+[38;2;57;255;20m14:11:14: INFO: Hover to Repair Tips[0m
+[38;2;57;255;20m14:11:15: INFO: PASS: Repair Tips modal displayed successfully with zoom out animation[0m
+[38;2;57;255;20m14:11:15: INFO: PASS: test_verify_repair_tips_hover_shows_modal - Pass[0m

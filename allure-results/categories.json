@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Application Defects",
+    "matchedStatuses": [
+      "failed"
+    ],
+    "traceRegex": ".*AssertionError.*"
+  },
+  {
+    "name": "Test Infrastructure Issues",
+    "matchedStatuses": [
+      "failed",
+      "broken"
+    ],
+    "traceRegex": ".*(?:TimeoutException|NoSuchElementException|StaleElementReferenceException|WebDriverException).*"
+  },
+  {
+    "name": "Skipped Tests",
+    "matchedStatuses": [
+      "skipped"
+    ]
+  }
+]

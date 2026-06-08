@@ -1,0 +1,6 @@
+[38;2;57;255;20m14:11:23: INFO: ===== Verify three device move together =====[0m
+[38;2;57;255;20m14:11:24: INFO: Scroll to the three-device animation section.[0m
+[38;2;57;255;20m14:11:24: INFO: Default positions: {'tablet_left': '-13.5px', 'phone_bottom': '129px', 'laptop_right': '197.25px'}[0m
+[38;2;57;255;20m14:11:26: INFO: Hover over the device box to trigger movement.[0m
+[38;2;57;255;20m14:11:26: INFO: Hover positions: {'tablet_left': '9px', 'phone_bottom': '129px', 'laptop_right': '174.75px'}[0m
+[38;2;57;255;20m14:11:27: INFO: PASS: test_verify_three_device_get_together - Pass[0m

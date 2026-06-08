@@ -1,0 +1,9 @@
+[32mINFO    [0m root:Login_test.py:41 ===== Verify Password Masking UI Security =====
+[32mINFO    [0m root:Login_test.py:48 Enter invalid email : sangqa@yopmail.com
+[32mINFO    [0m root:Login_test.py:50 Enter password textbox
+[32mINFO    [0m root:Login_test.py:51 Entered password into the textbox
+[32mINFO    [0m root:custom_logger.py:37 PASS: Default eye password field is properly masked type = 'password'
+[32mINFO    [0m root:Login_test.py:55 Clicked the eye icon to unmask password
+[32mINFO    [0m root:custom_logger.py:37 PASS: Open eye password field is unmasked type='text'
+[32mINFO    [0m root:Login_test.py:59 Clicked the eye icon again to hide password
+[32mINFO    [0m root:custom_logger.py:37 PASS: Close eye password field is masked again type='password'

@@ -1,0 +1,17 @@
+[
+  {
+    "make": "AUDI",
+    "year": "2024",
+    "model": "A5",
+    "expected_location": "2"
+  },
+  {
+    "vins": [
+      "1c6rr6tt9ks661210",
+      "2c3cdzjg4ph621284",
+      "Wauah74f58no76944",
+      "1n4bl3ap5dc125177",
+      "Salnm22202a377664"
+    ]
+  }
+]

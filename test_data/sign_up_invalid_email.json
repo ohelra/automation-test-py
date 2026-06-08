@@ -1,0 +1,46 @@
+{
+    "invalid_email" : [
+      {
+        "email": "example.gmail.com",
+        "expected": "Email invalid"
+      },
+      {
+        "email": "test@innova",
+        "expected": "Email invalid"
+      },
+      {
+        "email": "@innova.com",
+        "expected": "Email invalid"
+      },
+      {
+        "email": "test..email@innova.com",
+        "expected": "Email invalid"
+      },
+      {
+        "email" : "12345678",
+        "expected" : "Email invalid"
+      }
+  ],
+  "exist_email" : [
+    {
+      "email" : "minhbn@carmd.com",
+      "expected" : "Email has been used"
+    },
+    {
+      "email" : "maingochan1709@gmail.com",
+      "expected" : "Email has been used"
+    },
+    {
+      "email" : "nt.nhumo99@gmail.com",
+      "expected" : "Email has been used"
+    },
+    {
+      "email" : "datlv@carmd.com",
+      "expected" : "Email has been used"
+    },
+    {
+      "email" : "erasmo5@innova.com",
+      "expected" : "Email has been used"
+    }
+  ]
+}

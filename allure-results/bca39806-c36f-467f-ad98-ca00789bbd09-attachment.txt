@@ -1,0 +1,10 @@
+[38;2;57;255;20m13:09:11: INFO: ===== Verify Password Masking UI Security =====[0m
+[38;2;57;255;20m13:09:11: INFO: Enter invalid email : sangqa@yopmail.com[0m
+[38;2;57;255;20m13:09:11: INFO: Enter password textbox[0m
+[38;2;57;255;20m13:09:11: INFO: Entered password into the textbox[0m
+[38;2;57;255;20m13:09:11: INFO: PASS: Default eye password field is properly masked type = 'password'[0m
+[38;2;57;255;20m13:09:11: INFO: Clicked the eye icon to unmask password[0m
+[38;2;57;255;20m13:09:11: INFO: PASS: Open eye password field is unmasked type='text'[0m
+[38;2;57;255;20m13:09:11: INFO: Clicked the eye icon again to hide password[0m
+[38;2;57;255;20m13:09:11: INFO: PASS: Close eye password field is masked again type='password'[0m
+[38;2;57;255;20m13:09:11: INFO: PASS: test_verify_password_masking - Pass[0m

@@ -1,0 +1,6 @@
+[38;2;57;255;20m13:09:11: INFO: ===== Verify that user can login with valid email and password  =====[0m
+[38;2;57;255;20m13:09:23: INFO: Enter email : sangqa@yopmail.com[0m
+[38;2;57;255;20m13:09:23: INFO: Enter password textbox[0m
+[38;2;57;255;20m13:09:25: INFO: Click submit button[0m
+[38;2;57;255;20m13:09:25: INFO: PASS: Login Successful with invalid account[0m
+[38;2;57;255;20m13:09:25: INFO: PASS: test_verify_login_valid_account - Pass[0m

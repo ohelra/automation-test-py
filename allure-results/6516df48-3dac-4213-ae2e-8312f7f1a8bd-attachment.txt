@@ -1,0 +1,1 @@
+[32mINFO    [0m root:Introduction_Features_test.py:97 ===== Verify indicators number changed color number 1,2,3,4 =====

@@ -1,0 +1,6 @@
+[38;2;57;255;20m13:08:46: INFO: ===== Verify that user cannot login with invalid account =====[0m
+[38;2;57;255;20m13:08:47: INFO: Enter invalid email : jotawif537@pazard.com[0m
+[38;2;57;255;20m13:08:47: INFO: Enter password textbox[0m
+[38;2;57;255;20m13:08:47: INFO: Click submit button[0m
+[38;2;57;255;20m13:08:59: INFO: PASS: Display error message[0m
+[38;2;57;255;20m13:08:59: INFO: PASS: test_verify_login_invalid_account[sensitivity] - Pass[0m

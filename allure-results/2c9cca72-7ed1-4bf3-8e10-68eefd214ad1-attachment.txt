@@ -1,0 +1,1 @@
+[32mINFO    [0m root:Introduction_Features_test.py:48 ===== Verify Repair Tips Hover Shows Modal =====

@@ -1,0 +1,52 @@
+[
+  {
+    "make": "CHRYSLER",
+    "code": "P0123",
+    "expected_desc": "Throttle/Pedal Position Sensor/Switch ''A'' Circuit High"
+  },
+  {
+    "make": "BMW",
+    "code": "P0101",
+    "expected_desc": "Mass or Volume Air Flow Circuit Range/Performance"
+  },
+  {
+    "make": "NISSAN",
+    "code": "P0500",
+    "expected_desc": "Vehicle Speed Sensor/Circuit MTR"
+  },
+  {
+    "make": "PORSCHE",
+    "code": "P0130",
+    "expected_desc": "O2 Circuit (Bank 1, Sensor 1)"
+  },
+  {
+    "make": "TOYOTA",
+    "code": "P0457",
+    "expected_desc": "Evaporative Emission System Leak Detected (fuel cap loose/off)"
+  },
+  {
+    "make": "SUZUKI",
+    "code": "P0565",
+    "expected_desc": "Cruise Control ON Signal"
+  },
+  {
+    "make": "VOLKSWAGEN",
+    "code": "P0134",
+    "expected_desc": "Oxygen (Lambda) Sensor B1 S1: No Activity"
+  },
+  {
+    "make": "FORD",
+    "code": "P0673",
+    "expected_desc": "Cylinder 3 Glow Plug Circuit/Open"
+  },
+  {
+    "make": "CHEVROLET",
+    "code": "P0568",
+    "expected_desc": "Cruise Control SET Signal"
+  },
+  {
+    "make": "ISUZU",
+    "code": "P0876",
+    "expected_desc": "Transmission Fluid Pressure Sensor/Switch D Circuit Range/Performance"
+  }
+]
