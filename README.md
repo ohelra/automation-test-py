@@ -1,4 +1,4 @@
-# QA Automation Test - RSPRO Website
+# QA Automation Test - Website
 
 This repository contains the automated UI testing framework for the RSPRO website. The project is designed using the **Page Object Model (POM)** design pattern to enhance test maintenance and reduce code duplication.
 
@@ -89,7 +89,7 @@ This framework strictly follows the **Page Object Model (POM)** pattern. The pro
 * **`configurations/`**: Contains environment configurations, such as base URLs, browser specific settings, markers for each test class, environment variables.
 
 * **`logs/`**: 
-  * `RSPROwebsite.log`: The central log file. It records step-by-step execution details, warnings, and errors during test runs for debugging purposes.
+  * `.log`: The central log file. It records step-by-step execution details, warnings, and errors during test runs for debugging purposes.
 
 * **`reports/`**: The destination folder for generated test execution reports (e.g., Pytest-HTML or Allure reports) to review test pass/fail metrics.
 
